@@ -1,0 +1,34 @@
+﻿<Window x:Class="FileSortingApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FileSortingApp"
+        mc:Ignorable="d"
+        Title="File List Sorting Application" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackPanel Margin="0,5,0,5" Orientation="Horizontal">
+            <Button Width="100" HorizontalAlignment="Left" Click="SelectDirectory_Click">Select Directory ...</Button>
+            <Label>Selected Directory: </Label>
+            <TextBlock VerticalAlignment="Center" x:Name="_selectedDirectory"></TextBlock>
+        </StackPanel>
+        <StackPanel Margin="0,5,0,5" Grid.Row="1" Orientation="Horizontal">
+            <Label>Current File Name:</Label>
+            <TextBlock VerticalAlignment="Center" x:Name="_status"></TextBlock>
+        </StackPanel>
+        <StackPanel Name="_sortPanel" Margin="0,5,0,5" Grid.Row="2" Orientation="Horizontal" IsEnabled="False">
+            <Button Width="100" Margin="0,0,5,0" Click="SortByName_Click">Sort By Name</Button>
+            <Button Width="100" Margin="0,0,5,0" Click="SortByDate_Click">Sort By Date</Button>
+            <Button Width="100" Margin="0,0,5,0" Click="SortByType_Click">Sort By Type</Button>
+            <Button Width="100" Margin="0,0,5,0" Click="SortBySize_Click">Sort By Size</Button>
+        </StackPanel>
+        <DataGrid Name="_dataGridFiles" Margin="0,5,0,5" ItemsSource="{Binding}" Grid.Row="3" CanUserSortColumns="False"></DataGrid>
+        
+    </Grid>
+</Window>
